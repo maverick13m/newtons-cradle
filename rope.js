@@ -8,12 +8,12 @@ class rope {
             pointB:{x:this.offsetX, y:this.offsetY}
 
         }
-        this.rope = Constraint.create(options)
+        this.rope = Matter.Constraint.create(options)
         World.add(world,this.rope)
     }
     display() {
         strokeWeight(6)
-        line(this.thread.bodyA.position.x,this.thread.bodyA.position.y,this.thread.bodyB.position.x,this.thread.bodyB.position.y)
+        line(this.rope.bodyA.position.x,this.rope.bodyA.position.y,this.rope.bodyB.position.x,this.rope.bodyB.position.y)
 
         
     }
