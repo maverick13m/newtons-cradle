@@ -1,43 +1,25 @@
-class rope {
-    constructor(body1 ,body2, offsetX , offsetY){
+class Rope{
+    constructor(bodyA, bodyB,offsetX,offsetY){
+
         this.offsetX = offsetX
         this.offsetY = offsetY
-        var options ={
-            bodyA:body1,
-            bodyB:body2,
-            pointB:{x:this.offsetX, y:this.offsetY}
-
+        var options = {
+            bodyA: bodyA,
+            bodyB: bodyB,
+            pointB : {x:this.offsetX, y:this.offsetY},
+            length : 300
         }
-        this.rope = Matter.Constraint.create(options)
-        World.add(world,this.rope)
-    }
-    display() {
-        strokeWeight(6)
-        line(this.rope.bodyA.position.x,this.rope.bodyA.position.y,this.rope.bodyB.position.x,this.rope.bodyB.position.y)
-
-        
+        this.rope = Constraint.create(options);
+        World.add(world, this.rope);
     }
 
-
-
+    display(){
+        var pointA = this.rope.bodyA.position;
+        var pointB = this.rope.bodyB.position;
+        push()
+        strokeWeight(3);
+        line(pointA.x, pointA.y, pointB.x + this.offsetX, pointB.y + this.offsetY);
+        pop()
+    }
+    
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
